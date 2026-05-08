@@ -1,0 +1,224 @@
+/* Font cyberpunk */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+
+    background: radial-gradient(circle at top, #0a0a0a, #000000 80%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Grid background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#d400ff 1px, transparent 1px),
+                linear-gradient(90deg, #00f7ff 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Scan line */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    animation: scanMove 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scanMove {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    width: 90%;
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 15px;
+
+    border: 1px solid #00f7ff;
+
+    box-shadow:
+        0 0 10px #00f7ff,
+        0 0 20px #9900ff,
+        inset 0 0 10px #00f7ff;
+
+    text-align: center;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.logo {
+    color: #ff00c8;
+    text-shadow: 0 0 10px #ff00c8;
+}
+
+.menu a {
+    color: #00f7ff;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.3s;
+    text-shadow: 0 0 5px #00f7ff;
+}
+
+.menu a:hover {
+    color: #b700ff;
+    text-shadow:
+        0 0 10px #ff00c8,
+        0 0 20px #ff00c8;
+}
+
+/* Foto */
+img {
+    width: 140px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #ff00c8;
+
+    box-shadow:
+        0 0 10px #ff00c8,
+        0 0 20px #ff00c8;
+
+    transition: 0.4s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* Judul */
+h1 {
+    color: #00f7ff;
+    text-shadow:
+        0 0 10px #00f7ff,
+        0 0 20px #00f7ff,
+        0 0 40px #00f7ff;
+
+    animation: flicker 2s infinite alternate;
+}
+
+/* Subjudul */
+h3 {
+    color: #ff00c8;
+    text-shadow:
+        0 0 5px #ff00c8,
+        0 0 10px #ff00c8;
+}
+
+/* Paragraf */
+p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Info */
+.info {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Sosial */
+.social a {
+    border: 2px solid #00f7ff;
+    color: #00f7ff;
+    padding: 10px 15px;
+    margin: 5px;
+    display: inline-block;
+    text-decoration: none;
+
+    box-shadow:
+        0 0 5px #00f7ff,
+        inset 0 0 5px #00f7ff;
+
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: #00f7ff;
+    color: #000;
+
+    box-shadow:
+        0 0 20px #00f7ff,
+        0 0 40px #00f7ff;
+}
+
+/* Animasi neon */
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+/* Animasi dasar */
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Semua elemen utama mulai tersembunyi */
+nav,
+img,
+h1,
+p,
+.info,
+.social {
+    opacity: 0;
+    animation: revealUp 0.8s ease forwards;
+}
+
+/* Muncul satu per satu */
+nav {
+    animation-delay: 0.2s;
+}
+
+img {
+    animation-delay: 0.5s;
+}
+
+h1 {
+    animation-delay: 0.8s;
+}
+
+p {
+    animation-delay: 1.1s;
+}
+
+.info {
+    animation-delay: 1.4s;
+}
+
+.social {
+    animation-delay: 1.7s;
+}
